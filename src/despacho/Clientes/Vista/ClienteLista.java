@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vista;
+package despacho.Clientes.Vista;
 
 import despacho.Abogados.Abogado;
 import despacho.Clientes.Cliente;
@@ -11,6 +11,7 @@ import despacho.Procurador;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import static javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER;
 import static javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER;
 
 /**
@@ -23,16 +24,19 @@ public class ClienteLista extends javax.swing.JPanel {
     private JPanel panel;
     /**
      * Creates new form AbogadoLista
+     * @param cliente
+     * @param abogadoContrario
      */
     public ClienteLista(Cliente cliente,boolean abogadoContrario) {
         initComponents();
         scrollProcurador.setVerticalScrollBarPolicy(VERTICAL_SCROLLBAR_NEVER);
+        scrollProcurador.setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);
         lblDNI.setText(cliente.getDni());
         lblNombre.setText(cliente.getNombre());
         lblApellidos.setText(cliente.getApellidos());
         Abogado abogado = cliente.getAbogado();
-        panelProcurador2.setVisible(abogadoContrario);
-        lblProcurador2.setText(abogado.getProcurador().getNombreDespacho());
+        panelProcurador.setVisible(abogadoContrario);
+        lblProcurador.setText(abogado.getProcurador().getNombreDespacho());
         lblNombreAbogado.setText(abogado.getNombre());
         lblApellidosAbogado.setText(abogado.getApellidos());
         this.cliente = cliente;
@@ -50,10 +54,10 @@ public class ClienteLista extends javax.swing.JPanel {
         scrollProcurador = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         btnEditarApellidos = new javax.swing.JButton();
-        panelProcurador2 = new javax.swing.JPanel();
+        panelProcurador = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        lblProcurador2 = new javax.swing.JLabel();
-        btnProcurador2 = new javax.swing.JButton();
+        lblProcurador = new javax.swing.JLabel();
+        btnProcurador = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -70,7 +74,11 @@ public class ClienteLista extends javax.swing.JPanel {
         btnApellidosAbogado = new javax.swing.JButton();
         btnEditarNombre = new javax.swing.JButton();
 
-        setPreferredSize(new java.awt.Dimension(315, 169));
+        setPreferredSize(new java.awt.Dimension(315, 210));
+
+        scrollProcurador.setPreferredSize(new java.awt.Dimension(315, 210));
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(313, 210));
 
         btnEditarApellidos.setText("Editar");
         btnEditarApellidos.addActionListener(new java.awt.event.ActionListener() {
@@ -81,35 +89,35 @@ public class ClienteLista extends javax.swing.JPanel {
 
         jLabel9.setText("Procurador:");
 
-        lblProcurador2.setText("jLabel8");
+        lblProcurador.setText("jLabel8");
 
-        btnProcurador2.setText("Editar");
-        btnProcurador2.addActionListener(new java.awt.event.ActionListener() {
+        btnProcurador.setText("Editar");
+        btnProcurador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProcuradorActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout panelProcurador2Layout = new javax.swing.GroupLayout(panelProcurador2);
-        panelProcurador2.setLayout(panelProcurador2Layout);
-        panelProcurador2Layout.setHorizontalGroup(
-            panelProcurador2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelProcurador2Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelProcuradorLayout = new javax.swing.GroupLayout(panelProcurador);
+        panelProcurador.setLayout(panelProcuradorLayout);
+        panelProcuradorLayout.setHorizontalGroup(
+            panelProcuradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelProcuradorLayout.createSequentialGroup()
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblProcurador2)
+                .addComponent(lblProcurador)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnProcurador2)
+                .addComponent(btnProcurador)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        panelProcurador2Layout.setVerticalGroup(
-            panelProcurador2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelProcurador2Layout.createSequentialGroup()
+        panelProcuradorLayout.setVerticalGroup(
+            panelProcuradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelProcuradorLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(panelProcurador2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelProcuradorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(lblProcurador2)
-                    .addComponent(btnProcurador2)))
+                    .addComponent(lblProcurador)
+                    .addComponent(btnProcurador)))
         );
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -199,7 +207,7 @@ public class ClienteLista extends javax.swing.JPanel {
                                 .addComponent(lblDNI)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnDNI))))
-                    .addComponent(panelProcurador2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(panelProcurador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(141, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -222,7 +230,7 @@ public class ClienteLista extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelProcurador2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelProcurador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -233,7 +241,7 @@ public class ClienteLista extends javax.swing.JPanel {
                     .addComponent(jLabel5)
                     .addComponent(lblApellidosAbogado)
                     .addComponent(btnApellidosAbogado))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         scrollProcurador.setViewportView(jPanel1);
@@ -242,12 +250,12 @@ public class ClienteLista extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scrollProcurador)
+            .addComponent(scrollProcurador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(scrollProcurador, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrollProcurador, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -306,16 +314,12 @@ public class ClienteLista extends javax.swing.JPanel {
     private javax.swing.JButton btnEditarNombre;
     private javax.swing.JButton btnNombreAbogado;
     private javax.swing.JButton btnProcurador;
-    private javax.swing.JButton btnProcurador1;
-    private javax.swing.JButton btnProcurador2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblApellidos;
@@ -324,11 +328,7 @@ public class ClienteLista extends javax.swing.JPanel {
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblNombreAbogado;
     private javax.swing.JLabel lblProcurador;
-    private javax.swing.JLabel lblProcurador1;
-    private javax.swing.JLabel lblProcurador2;
     private javax.swing.JPanel panelProcurador;
-    private javax.swing.JPanel panelProcurador1;
-    private javax.swing.JPanel panelProcurador2;
     private javax.swing.JScrollPane scrollProcurador;
     // End of variables declaration//GEN-END:variables
 }

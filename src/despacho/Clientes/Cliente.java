@@ -5,11 +5,17 @@
  */
 package despacho.Clientes;
 
+import Controlador.Controlador;
 import conexionBBDD.ConexionMySQL;
 import despacho.Abogados.Abogado;
 import despacho.Persona;
 import java.util.ArrayList;
 import java.util.HashMap;
+import despacho.Clientes.Vista.AnadirCliente;
+import despacho.Clientes.Vista.ClienteLista;
+import java.awt.Color;
+import javax.swing.BorderFactory;
+import javax.swing.JPanel;
 
 /**
  *
@@ -56,6 +62,7 @@ public class Cliente extends Persona{
         abogado.anadirABBDD();
     }
     
+    @Override
     public int getIDdeBBDD(){
         ConexionMySQL con = new ConexionMySQL();
         String sql = "SELECT IDCliente FROM Cliente WHERE DNI = '"+dni+"' AND Nombre = '"+nombre+"' AND Apellidos = '"+apellidos+"'";
@@ -65,7 +72,12 @@ public class Cliente extends Persona{
     }
     
     
-    
+    public JPanel visualizarClienteSwing(Controlador ctrl){
+        JPanel panel = new ClienteLista(this,false);
+        panel.setBorder(BorderFactory.createLineBorder(Color.black));
+        panel.setSize(345, 210);
+        return panel;
+    }
     
     
     

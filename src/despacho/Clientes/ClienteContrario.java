@@ -5,7 +5,13 @@
  */
 package despacho.Clientes;
 
+import Controlador.Controlador;
 import java.util.HashMap;
+import despacho.Clientes.Vista.AnadirCliente;
+import despacho.Clientes.Vista.ClienteLista;
+import java.awt.Color;
+import javax.swing.BorderFactory;
+import javax.swing.JPanel;
 
 /**
  *
@@ -24,4 +30,13 @@ public class ClienteContrario extends Cliente{
     public ClienteContrario(String dni,String nombre,String apellidos){
         super(dni,nombre,apellidos);
     }
+    
+    @Override
+    public JPanel visualizarClienteSwing(Controlador ctrl){
+        JPanel panel = new ClienteLista(this,true);
+        panel.setBorder(BorderFactory.createLineBorder(Color.black));
+        panel.setSize(345, 210);
+        return panel;
+    }
+    
 }

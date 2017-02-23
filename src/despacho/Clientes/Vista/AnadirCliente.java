@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vista;
+package despacho.Clientes.Vista;
 
 import despacho.Abogados.Abogado;
 import despacho.Clientes.Cliente;
+import despacho.Clientes.ClienteContrario;
 
 /**
  *
@@ -24,7 +25,12 @@ public class AnadirCliente extends javax.swing.JDialog {
         initComponents();
         panelProcurador.setVisible(abogadoContrario);
         this.abogadoContrario = abogadoContrario;
-        this.cliente = new Cliente();
+        if(abogadoContrario == true){
+            this.cliente = new ClienteContrario();
+        }else{
+           this.cliente = new Cliente(); 
+        }
+        
     }
 
     public Cliente getCliente() {

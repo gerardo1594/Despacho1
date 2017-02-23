@@ -3,13 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package conexionBBDD;
-
-import Controlador.Controlador;
-import java.sql.Connection;
-import javax.sql.rowset.CachedRowSet;
-import conexionBBDD.ConexionMySQL;
-import despacho.Procedimiento;
+package despacho.Vista;
 
 /**
  *
@@ -17,12 +11,13 @@ import despacho.Procedimiento;
  */
 public class Prueba extends javax.swing.JFrame {
 
-    ConexionMySQL conectar;
     /**
      * Creates new form Prueba
      */
     public Prueba() {
         initComponents();
+        ProcedimientoSwing panel = new ProcedimientoSwing();
+        this.getContentPane().add(panel);
     }
 
     /**
@@ -34,49 +29,21 @@ public class Prueba extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnConectar = new javax.swing.JButton();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        btnConectar.setText("Conectar");
-        btnConectar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConectarActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(269, 269, 269)
-                .addComponent(btnConectar)
-                .addContainerGap(287, Short.MAX_VALUE))
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(192, Short.MAX_VALUE)
-                .addComponent(btnConectar)
-                .addGap(177, 177, 177))
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnConectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConectarActionPerformed
-        // TODO add your handling code here:
-        /*conectar = new ConexionMySQL("INSERT INTO `cliente` (`IDCliente`, `DNI`, `Nombre`, `Apellidos`) VALUES (NULL, '00000000Q', 'Juan', 'Garcia');");
-        Connection con = conectar.getConnection();
-        CachedRowSet datos = conectar.getDatos();
-        if(datos != null){
-            System.out.println("Datos validos...");
-        }*/
-        Procedimiento p = new Procedimiento("6");
-        p.getProcedimientoBBDD(new Controlador());
-        int n = 0;
-    }//GEN-LAST:event_btnConectarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -107,6 +74,7 @@ public class Prueba extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Prueba().setVisible(true);
             }
@@ -114,6 +82,5 @@ public class Prueba extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnConectar;
     // End of variables declaration//GEN-END:variables
 }

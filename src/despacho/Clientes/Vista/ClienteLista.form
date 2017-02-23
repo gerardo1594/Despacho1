@@ -3,7 +3,7 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <Properties>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[315, 169]"/>
+      <Dimension value="[315, 210]"/>
     </Property>
   </Properties>
   <AuxValues>
@@ -27,7 +27,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="scrollProcurador" min="-2" pref="182" max="-2" attributes="0"/>
+              <Component id="scrollProcurador" min="-2" pref="210" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -35,10 +35,20 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JScrollPane" name="scrollProcurador">
+      <Properties>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[315, 210]"/>
+        </Property>
+      </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
         <Container class="javax.swing.JPanel" name="jPanel1">
+          <Properties>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[313, 210]"/>
+            </Property>
+          </Properties>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -91,7 +101,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <Component id="panelProcurador2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="panelProcurador" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="141" max="32767" attributes="0"/>
                   </Group>
@@ -120,7 +130,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="panelProcurador2" min="-2" max="-2" attributes="0"/>
+                      <Component id="panelProcurador" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -133,7 +143,7 @@
                           <Component id="lblApellidosAbogado" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnApellidosAbogado" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="14" max="32767" attributes="0"/>
+                      <EmptySpace pref="41" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -147,7 +157,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditarApellidosActionPerformed"/>
               </Events>
             </Component>
-            <Container class="javax.swing.JPanel" name="panelProcurador2">
+            <Container class="javax.swing.JPanel" name="panelProcurador">
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -155,9 +165,9 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblProcurador2" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblProcurador" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnProcurador2" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnProcurador" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -168,8 +178,8 @@
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblProcurador2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnProcurador2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblProcurador" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnProcurador" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -181,12 +191,12 @@
                     <Property name="text" type="java.lang.String" value="Procurador:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblProcurador2">
+                <Component class="javax.swing.JLabel" name="lblProcurador">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jLabel8"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnProcurador2">
+                <Component class="javax.swing.JButton" name="btnProcurador">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Editar"/>
                   </Properties>

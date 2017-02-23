@@ -5,19 +5,22 @@
  */
 package vista;
 
+import Controlador.Controlador;
 import java.awt.BorderLayout;
+import javax.swing.JPanel;
 
 /**
  *
  * @author gerar
  */
 public class PrincipalSwing extends javax.swing.JFrame {
-
+    private Controlador ctrl;
     /**
      * Creates new form PrincipalSwing
      */
-    public PrincipalSwing() {
+    public PrincipalSwing(Controlador ctrl) {
         initComponents();
+        this.ctrl = ctrl;
     }
 
     /**
@@ -74,27 +77,30 @@ public class PrincipalSwing extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-        BuscarSwing buscar = new BuscarSwing(this);
+        
+        ctrl.cargarPanelBuscarSwing(this);
+        /*BuscarSwing buscar = new BuscarSwing(this);
         buscar.setSize(810,650);
         //buscar.setLocation(5, 5);
         panelPrincipal.removeAll();
         panelPrincipal.add(buscar);
         panelPrincipal.revalidate();
-        panelPrincipal.repaint();
+        panelPrincipal.repaint();*/
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnAnadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirActionPerformed
         // TODO add your handling code here:
-        AnadirSwing anadir = new AnadirSwing();
+        /*AnadirSwing anadir = new AnadirSwing();
         anadir.setSize(810,650);
         //buscar.setLocation(5, 5);
         panelPrincipal.removeAll();
         panelPrincipal.add(anadir);
         panelPrincipal.revalidate();
-        panelPrincipal.repaint();       
+        panelPrincipal.repaint();*/    
+        ctrl.anadirProcedimientoSwing(this);
     }//GEN-LAST:event_btnAnadirActionPerformed
 
-    public void buscar(String id){
+    /*public void buscar(String id){
         BuscarSwing buscar = new BuscarSwing(this,id);
         buscar.setSize(810,650);
         //buscar.setLocation(5, 5);
@@ -102,7 +108,7 @@ public class PrincipalSwing extends javax.swing.JFrame {
         panelPrincipal.add(buscar);
         panelPrincipal.revalidate();
         panelPrincipal.repaint();
-    }
+    }*/
     
     /**
      * @param args the command line arguments
@@ -134,9 +140,18 @@ public class PrincipalSwing extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PrincipalSwing().setVisible(true);
+                new PrincipalSwing(new Controlador()).setVisible(true);
             }
         });
+    }
+    
+    public void cargarEnPanelPrincipal(JPanel panel){
+        panel.setSize(810,650);
+        //buscar.setLocation(5, 5);
+        panelPrincipal.removeAll();
+        panelPrincipal.add(panel);
+        panelPrincipal.revalidate();
+        panelPrincipal.repaint();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

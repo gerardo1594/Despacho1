@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vista;
+package despacho.Vista;
 
+import despacho.Clientes.Vista.AnadirCliente;
+import Controlador.Controlador;
 import conexionBBDD.ConexionMySQL;
 import despacho.Abogados.Abogado;
 import despacho.Clientes.Cliente;
@@ -27,6 +29,7 @@ import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeSelectionModel;
+import despacho.Clientes.Vista.ClienteLista;
 
 /**
  *
@@ -37,11 +40,12 @@ public class AnadirSwing extends javax.swing.JPanel {
     private String idPadre;
     private boolean anadido;
     private JDialog ventanaHijo;
-    private PrincipalSwing ventanaPrincipal;
+    private Controlador ctrl;
+    //private PrincipalSwing ventanaPrincipal;
     /**
      * Creates new form AnadirSwing
      */
-    public AnadirSwing() {
+    public AnadirSwing(Controlador ctrl) {
         initComponents();
         panelAbogados.setLayout(new BoxLayout(panelAbogados, BoxLayout.Y_AXIS));
         panelAbogadosContrarios.setLayout(new BoxLayout(panelAbogadosContrarios, BoxLayout.Y_AXIS));
@@ -49,10 +53,12 @@ public class AnadirSwing extends javax.swing.JPanel {
         panelTree.setVisible(false);
         idPadre = null;
         anadido = false;
+        this.ctrl = ctrl;
     }
-    public AnadirSwing(Procedimiento p,PrincipalSwing ventanaPrincipal){
-        this.ventanaPrincipal = ventanaPrincipal;
+    public AnadirSwing(Procedimiento p,Controlador ctrl){
+        //this.ventanaPrincipal = ventanaPrincipal;
         initComponents();
+        this.ctrl = ctrl;
         panelAbogados.setLayout(new BoxLayout(panelAbogados, BoxLayout.Y_AXIS));
         panelAbogadosContrarios.setLayout(new BoxLayout(panelAbogadosContrarios, BoxLayout.Y_AXIS));
         this.procedimiento = p;
@@ -394,7 +400,7 @@ public class AnadirSwing extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnGuardar)
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnAnadirAbogContrario))
@@ -430,12 +436,15 @@ public class AnadirSwing extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(btnAnadirAbog)
+                            .addComponent(btnAnadirAbog))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
                             .addComponent(btnAnadirAbogContrario))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(30, 30, 30)
                 .addComponent(btnGuardar)
                 .addContainerGap())
@@ -445,13 +454,15 @@ public class AnadirSwing extends javax.swing.JPanel {
     private void btnAnadirAbogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirAbogActionPerformed
         // TODO add your handling code here:
         
-        AnadirCliente ventana = new AnadirCliente(null,true,false,null);
+        ctrl.anadirClienteAlProcedimiento();
+        /*AnadirCliente ventana = new AnadirCliente(null,true,false,null);
         ventana.setVisible(true);
         Cliente cliente = ventana.getCliente();
         
         if(cliente != null){
             this.procedimiento.addCliente(cliente);
-        }
+        }*/
+        
         panelAbogados.removeAll();
         //panelAbogados.setSize(300, 1000);
         int tamano = 0;
@@ -579,7 +590,7 @@ public class AnadirSwing extends javax.swing.JPanel {
         /*if(evt.getClickCount()==1){
             System.out.println("Se ha hecho un click");
         }*/
-        if(evt.getClickCount()==2){
+        /*if(evt.getClickCount()==2){
             DefaultMutableTreeNode nodoSeleccionado;
             nodoSeleccionado = (DefaultMutableTreeNode) TreeSubProc.getLastSelectedPathComponent();
             String id = nodoSeleccionado.getUserObject().toString();
@@ -588,7 +599,7 @@ public class AnadirSwing extends javax.swing.JPanel {
             }            
             System.out.println("Se ha hecho doble click");
             //ventanaPrincipal.buscar(selecc.);
-        }
+        }*/
     }//GEN-LAST:event_TreeSubProcMouseClicked
 
     public boolean getAnadido(){

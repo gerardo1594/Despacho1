@@ -48,9 +48,9 @@
               <Group type="102" attributes="0">
                   <Component id="txtBuscar" min="-2" pref="707" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  <Component id="btnBuscar" max="32767" attributes="0"/>
+                  <Component id="btnBuscar" pref="80" max="32767" attributes="0"/>
               </Group>
-              <Component id="panelProcedimiento" alignment="0" pref="787" max="32767" attributes="0"/>
+              <Component id="panelTabProcedimiento" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -61,7 +61,7 @@
                       <Component id="btnBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="panelProcedimiento" max="32767" attributes="0"/>
+                  <Component id="panelTabProcedimiento" min="-2" pref="580" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -77,25 +77,9 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarActionPerformed"/>
           </Events>
         </Component>
-        <Container class="javax.swing.JPanel" name="panelProcedimiento">
-          <Properties>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[810, 580]"/>
-            </Property>
-          </Properties>
+        <Container class="javax.swing.JTabbedPane" name="panelTabProcedimiento">
 
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="580" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-          </Layout>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
         </Container>
       </SubComponents>
     </Container>

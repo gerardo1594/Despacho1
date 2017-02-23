@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vista;
+package despacho.Vista;
 
+import Controlador.Controlador;
 import despacho.Procedimiento;
 import java.awt.Color;
 import javax.swing.JFrame;
@@ -14,20 +15,20 @@ import javax.swing.JFrame;
  * @author gerar
  */
 public class BuscarSwing extends javax.swing.JPanel {
-    private PrincipalSwing ventanaPrincipal;
+    private Controlador ctrl;
     /**
      * Creates new form Buscar
      */
-    public BuscarSwing(PrincipalSwing ventanaPrincipal) {
+    public BuscarSwing(Controlador ctrl) {
         initComponents();
         btnActualizar.setVisible(false);
-        this.ventanaPrincipal = ventanaPrincipal;
+        this.ctrl = ctrl;
     }
     
-    public BuscarSwing(PrincipalSwing ventanaPrincipal,String id){
+    public BuscarSwing(Controlador ctrl,String id){
         initComponents();
+        this.ctrl = ctrl;
         btnActualizar.setVisible(false);
-        this.ventanaPrincipal = ventanaPrincipal;
         txtBuscar.setText(id);
         btnBuscar.doClick();
     }
@@ -44,7 +45,7 @@ public class BuscarSwing extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         txtBuscar = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
-        panelProcedimiento = new javax.swing.JPanel();
+        panelTabProcedimiento = new javax.swing.JTabbedPane();
         btnActualizar = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(784, 610));
@@ -56,19 +57,6 @@ public class BuscarSwing extends javax.swing.JPanel {
             }
         });
 
-        panelProcedimiento.setPreferredSize(new java.awt.Dimension(810, 580));
-
-        javax.swing.GroupLayout panelProcedimientoLayout = new javax.swing.GroupLayout(panelProcedimiento);
-        panelProcedimiento.setLayout(panelProcedimientoLayout);
-        panelProcedimientoLayout.setHorizontalGroup(
-            panelProcedimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        panelProcedimientoLayout.setVerticalGroup(
-            panelProcedimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 580, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -76,10 +64,8 @@ public class BuscarSwing extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 707, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(panelProcedimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 787, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
+            .addComponent(panelTabProcedimiento)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,7 +74,7 @@ public class BuscarSwing extends javax.swing.JPanel {
                     .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelProcedimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelTabProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         btnActualizar.setText("Actualizar");
@@ -116,9 +102,11 @@ public class BuscarSwing extends javax.swing.JPanel {
         // TODO add your handling code here:
         String id = txtBuscar.getText();
         
-        Procedimiento p = new Procedimiento();
-        p.getProcedimientoBBDD(id);
-        AnadirSwing ventana = new AnadirSwing(p,this.ventanaPrincipal);
+        
+        Procedimiento p = ctrl.buscarProcedimientoBBDD(id);
+        p.getProcedimientoBBDD(ctrl);
+        p.visualizarProcedimientoSwing(ctrl, panelTabProcedimiento);
+        /*AnadirSwing ventana = new AnadirSwing(p, (PrincipalSwing) panelProcedimiento.getParent().getParent());
         ventana.setSize(810,580);
         panelProcedimiento.setSize(810,580);
         panelProcedimiento.removeAll();
@@ -126,16 +114,19 @@ public class BuscarSwing extends javax.swing.JPanel {
         ventana.revalidate();
         ventana.repaint();
         panelProcedimiento.revalidate();
-        panelProcedimiento.repaint();
+        panelProcedimiento.repaint();*/
         btnActualizar.setVisible(true);
     }//GEN-LAST:event_btnBuscarActionPerformed
 
+    public void cargarProcedimientoPanelBuscar(){
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel panelProcedimiento;
+    private javax.swing.JTabbedPane panelTabProcedimiento;
     private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }

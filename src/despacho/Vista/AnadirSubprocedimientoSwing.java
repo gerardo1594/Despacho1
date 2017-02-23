@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vista;
+package despacho.Vista;
 
 /**
  *
@@ -36,7 +36,6 @@ public class AnadirSubprocedimientoSwing extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(826, 690));
-        setPreferredSize(new java.awt.Dimension(826, 690));
         setSize(new java.awt.Dimension(827, 740));
 
         panelAnadir.setPreferredSize(new java.awt.Dimension(826, 690));
